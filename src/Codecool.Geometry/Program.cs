@@ -1,4 +1,7 @@
-﻿namespace Codecool.Geometry
+﻿using System;
+using Codecool.Geometry.Containers;
+
+namespace Codecool.Geometry
 {
     /// <summary>
     ///     This is the main class of your program which contains Main method
@@ -12,15 +15,17 @@
         public static void Main(string[] args)
         {
             bool isRunning = true;
+            var shapeCollection = new ShapeCollection();
 
             while (isRunning)
             {
-                int option = 0;  // TODO read the keyboard here
+                Console.WriteLine("Please choose your option:");
+                int option = int.Parse(Console.ReadLine());
 
                 switch (option)
                 {
                     case 1:
-                        // TODO Add new shape
+                        shapeCollection.AddShape();
                         break;
                     case 2:
                         // TODO Show all shapes
@@ -35,9 +40,10 @@
                         // TODO Show formulas
                         break;
                     case 0:
-                        // TODO Exit
+                        isRunning = false;
                         break;
                 }
+
             }
         }
     }
