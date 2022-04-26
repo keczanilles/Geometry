@@ -15,8 +15,8 @@ namespace Codecool.Geometry.Shapes
         public EquilateralTriangle(double side) : base(side, side, side)
         {
             _side = side;
-            _area = Math.Pow(side, 2) * Math.Sqrt(0.75);
-            _perimeter = 3 * side;
+            _area = Math.Pow(_side, 2) * Math.Sqrt(0.75);
+            _perimeter = 3 * _side;
         }
 
         /// <summary>
@@ -28,5 +28,10 @@ namespace Codecool.Geometry.Shapes
         ///     Gets formula for the perimeter of the triangle as a string.
         /// </summary>
         public new static string PerimeterFormula => _perimeterFormula;
+
+        public override string ToString()
+        {
+            return $"Equilateral Triangle: The sides are {_side} cm, the area is {_area} cm2, the perimeter is {_perimeter} cm";
+        }
     }
 }

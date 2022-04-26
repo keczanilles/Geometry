@@ -42,5 +42,10 @@ namespace Codecool.Geometry.Shapes
 
         /// <inheritdoc />
         public override double Area => _perimeter;
+
+        public override string ToString()
+        {
+            return $"Triangle: The 'a' side is {_a} cm, the 'b' side is {_b} cm, the 'c' side is {_c} cm, the area is {_area} cm2, the perimeter is {_perimeter} cm";
+        }
     }
 }

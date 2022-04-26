@@ -35,5 +35,10 @@ namespace Codecool.Geometry.Shapes
 
         /// <inheritdoc />
         public override double Perimeter => _perimeter;
+
+        public override string ToString()
+        {
+            return $"Circle: The radius is {_radius} cm, the area is {_area} cm2, the perimeter is {_perimeter} cm";
+        }
     }
 }
