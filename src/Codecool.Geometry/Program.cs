@@ -28,7 +28,10 @@ namespace Codecool.Geometry
                         shapeCollection.AddShape();
                         break;
                     case 2:
-                        // TODO Show all shapes
+                        foreach (var item in shapeCollection.shapes)
+                        {
+                            Console.WriteLine(item);
+                        }
                         break;
                     case 3:
                         // TODO Show shape with the largest perimeter
@@ -43,7 +46,7 @@ namespace Codecool.Geometry
                         isRunning = false;
                         break;
                 }
-
+                
             }
         }
     }
