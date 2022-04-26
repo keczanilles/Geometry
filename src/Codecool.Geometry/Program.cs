@@ -20,6 +20,13 @@ namespace Codecool.Geometry
             while (isRunning)
             {
                 Console.WriteLine("Please choose your option:");
+                Console.WriteLine("1. Add new shape");
+                Console.WriteLine("2. Print all shapes");
+                Console.WriteLine("3. Largest perimeter");
+                Console.WriteLine("4. Largest area");
+                Console.WriteLine("5. Show formulas");
+                Console.WriteLine("0. Exit");
+
                 int option = int.Parse(Console.ReadLine());
 
                 switch (option)
