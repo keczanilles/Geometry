@@ -7,20 +7,40 @@ namespace Codecool.Geometry.Shapes
     /// </summary>
     public class Triangle : Shape
     {
+
+        private double _a;
+        private double _b;
+        private double _c;
+        private double _height;
+        private static string _areaFormula = "0.5 * b * height";
+        private static string _perimeterFormula = "a + b + c";
+        public double _area;
+        public double _perimeter;
+
+        public Triangle(double a, double b, double c)
+        {
+            _a = a;
+            _b = b;
+            _c = c;
+            _height = Math.Sqrt((a + b + c) * (-a + b + c) * (a - b + c) * (a + b - c)) / (2 * c);
+            _area = 0.5 * b * _height;
+            _perimeter = a + b + c;
+        }
+
         /// <summary>
         ///     Gets formula for the area of the triangle as a string.
         /// </summary>
-        public new static string AreaFormula => throw new NotImplementedException();
+        public new static string AreaFormula => _areaFormula;
 
         /// <summary>
         ///     Gets formula for the perimeter of the triangle as a string.
         /// </summary>
-        public new static string PerimeterFormula => throw new NotImplementedException();
+        public new static string PerimeterFormula => _perimeterFormula;
 
         /// <inheritdoc/>
-        public override double Perimeter => throw new NotImplementedException();
+        public override double Perimeter => _area;
 
         /// <inheritdoc />
-        public override double Area => throw new NotImplementedException();
+        public override double Area => _perimeter;
     }
 }
