@@ -1,11 +1,111 @@
 @startuml
+
 Shape <|-- Circle
+Shape <|-- Triangle
+Shape <|-- Rectangle
+Shape <|-- RegularPentagon
+Rectangle <|-- Square
+Triangle <|-- EquilateralTriangle
+
+
+class ShapeCollection {
++ List<Shape> shapes
++ ShapeCollection
+
+
++ AddShape()
++ GetShapesTable()
++ GetLargestShapeByPerimeter()
++ GetLargestShapeByArea()
++ GetFormulas()
+}
+
+
+class Program{
++ {static} Main()
+}
+
 
 abstract class Shape {
-  {abstract} double calculateArea()
++ {abstract} AreaFormula
++ {abstract} PerimeterFormula
++ {abstract} Area
++ {abstract} Perimeter
+
++ {static} CheckIfArgsAreGreaterThanZero()
 }
 
+
 class Circle {
-  double calculateArea()
+- _radius
+- {static} _areaFormula
+- {static} _perimeterFormula
+- _area
+- _perimeter
+
++ Circle()
++ ToString()
 }
+
+
+class Triangle{
+- _a
+- _b
+- _c
+- _height
+- {static} _areaFormula
+- {static} _perimeterFormula
+- _area
+- _perimeter
+
++ Triangle()
++ ToString()
+  
+}
+
+
+class Rectangle{
+- _a
+- _b
+- {static} _areaFormula
+- {static} _perimeterFormula
+- _area
+- _perimeter
+
++ Rectangle()
++ ToString()
+}
+
+
+class RegularPentagon{
+- _a
+- {static} _areaFormula
+- {static} _perimeterFormula
+- _area
+- _perimeter
+
++ RegularPentagon()
++ ToString()
+}
+
+
+class Square{
+- _a
+- {static} _areaFormula
+- {static} _perimeterFormula
+
++ Square()
++ ToString()  
+}
+
+
+class EquilateralTriangle{
+- _a
+- {static} _areaFormula
+- {static} _perimeterFormula
+
++ EquilateralTriangle()
++ ToString()
+}
+
 @enduml
