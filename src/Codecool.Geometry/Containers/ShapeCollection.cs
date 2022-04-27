@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Codecool.Geometry.Shapes;
 
@@ -79,24 +80,78 @@ namespace Codecool.Geometry.Containers
 
         public void GetShapesTable()
         {
-            Console.WriteLine("/------------------------------------------------------------------------------------------------------------------------------------\\");
-            Console.WriteLine("| ID|                Class|                                toString|  Perimeter|   Formula|       Area|                       Formula|");
-            Console.WriteLine("|---|---------------------|----------------------------------------|-----------|----------|-----------|------------------------------|");
-
-
             for (int i = 0; i < shapes.Count; i++)
             {
                 Console.WriteLine($"{i}, {shapes[i].GetType().Name}, {shapes[i]}, {Math.Round(shapes[i].Perimeter, 2)}, {shapes[i].PerimeterFormula}, {Math.Round(shapes[i].Area, 2)}, {shapes[i].AreaFormula}");
-
-
-                if (i != shapes.Count - 1)
-                {
-                    Console.WriteLine("|---|---------------------|----------------------------------------|-----------|----------|-----------|------------------------------|");
-                }
             }
-
-            Console.WriteLine("\\------------------------------------------------------------------------------------------------------------------------------------/");
         }
 
+        public void GetLargestShapeByPerimeter()
+        {
+            double max = shapes.Max(item => item.Perimeter);
+
+            foreach (var shape in shapes)
+            {
+                if (shape.Perimeter == max)
+                {
+                    Console.WriteLine($"{shape.GetType().Name}, {shape}, {Math.Round(shape.Perimeter, 2)}, {shape.PerimeterFormula}, {Math.Round(shape.Area, 2)}, {shape.AreaFormula}");
+                }
+            }
+        }
+
+        public void GetLargestShapeByArea()
+        {
+            double max = shapes.Max(item => item.Area);
+
+            foreach (var shape in shapes)
+            {
+                if (shape.Area == max)
+                {
+                    Console.WriteLine($"{shape.GetType().Name}, {shape}, {Math.Round(shape.Perimeter, 2)}, {shape.PerimeterFormula}, {Math.Round(shape.Area, 2)}, {shape.AreaFormula}");
+                }
+            }
+        }
+
+        public void GetFormulas()
+        {
+            Console.WriteLine("Please choose your shape:");
+            Console.WriteLine("1. Circle");
+            Console.WriteLine("2. Equilateral Triangle");
+            Console.WriteLine("3. Rectangle");
+            Console.WriteLine("4. Regular Pentagon");
+            Console.WriteLine("5. Square");
+            Console.WriteLine("6. Triangle");
+
+            int input = int.Parse(Console.ReadLine());
+
+            var circle = new Circle(1);
+            var equilateralTriangle = new EquilateralTriangle(1);
+            var rectangle = new Rectangle(1, 1);
+            var regularPentagon = new RegularPentagon(1);
+            var square = new Square(1);
+            var triangle = new Triangle(1, 1, 1);
+
+            switch (input)
+            {
+                case 1:
+                    Console.WriteLine($"Circle area formula: {circle.AreaFormula}, Circle perimeter formula: {circle.PerimeterFormula}");
+                    break;
+                case 2:
+                    Console.WriteLine($"Equilateral Triangle area formula: {equilateralTriangle.AreaFormula}, Equilateral Triangle perimeter formula: {equilateralTriangle.PerimeterFormula}");
+                    break;
+                case 3:
+                    Console.WriteLine($"Rectangle area formula: {rectangle.AreaFormula}, Rectangle perimeter formula: {rectangle.PerimeterFormula}");
+                    break;
+                case 4:
+                    Console.WriteLine($"Regular pentagon area formula: {regularPentagon.AreaFormula}, Regular pentagon perimeter formula: {regularPentagon.PerimeterFormula}");
+                    break;
+                case 5:
+                    Console.WriteLine($"Square area formula: {square.AreaFormula}, Square perimeter formula: {square.PerimeterFormula}");
+                    break;
+                case 6:
+                    Console.WriteLine($"Triangle area formula: {triangle.AreaFormula}, Triangle perimeter formula: {triangle.PerimeterFormula}");
+                    break;
+            }
+        }
     }
 }

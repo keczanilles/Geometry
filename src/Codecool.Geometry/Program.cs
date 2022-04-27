@@ -39,13 +39,13 @@ namespace Codecool.Geometry
                         shapeCollection.GetShapesTable();
                         break;
                     case 3:
-                        // TODO Show shape with the largest perimeter
+                        shapeCollection.GetLargestShapeByPerimeter();
                         break;
                     case 4:
-                        // TODO Show shape with the largest area
+                        shapeCollection.GetLargestShapeByArea();
                         break;
                     case 5:
-                        // TODO Show formulas
+                        shapeCollection.GetFormulas();
                         break;
                     case 0:
                         isRunning = false;
