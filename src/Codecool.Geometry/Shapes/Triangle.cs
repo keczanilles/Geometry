@@ -7,13 +7,12 @@ namespace Codecool.Geometry.Shapes
     /// </summary>
     public class Triangle : Shape
     {
-
         private double _a;
         private double _b;
         private double _c;
         private double _height;
-        private static string _areaFormula = "0.5 * b * height";
-        private static string _perimeterFormula = "a + b + c";
+        private static string _areaFormula = "sqrt(s×(s-a)×(s-b)×(s-c))";
+        private static string _perimeterFormula = "a+b+c";
         public double _area;
         public double _perimeter;
 
@@ -30,22 +29,22 @@ namespace Codecool.Geometry.Shapes
         /// <summary>
         ///     Gets formula for the area of the triangle as a string.
         /// </summary>
-        public new static string AreaFormula => _areaFormula;
+        public override string AreaFormula => _areaFormula;
 
         /// <summary>
         ///     Gets formula for the perimeter of the triangle as a string.
         /// </summary>
-        public new static string PerimeterFormula => _perimeterFormula;
+        public override string PerimeterFormula => _perimeterFormula;
 
         /// <inheritdoc/>
-        public override double Perimeter => _area;
+        public override double Perimeter => _perimeter;
 
         /// <inheritdoc />
-        public override double Area => _perimeter;
+        public override double Area => _area;
 
         public override string ToString()
         {
-            return $"Triangle: The 'a' side is {_a} cm, the 'b' side is {_b} cm, the 'c' side is {_c} cm, the area is {_area} cm2, the perimeter is {_perimeter} cm";
+            return $"Triangle, a = {Math.Round(_a, 2)}, b = {Math.Round(_b, 2)}, c = {Math.Round(_c, 2)}";
         }
     }
 }

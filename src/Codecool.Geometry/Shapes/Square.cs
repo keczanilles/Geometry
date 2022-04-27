@@ -8,8 +8,8 @@ namespace Codecool.Geometry.Shapes
     public class Square : Rectangle
     {
         private double _a;
-        private static string _areaFormula = "a * a";
-        private static string _perimeterFormula = "4 * a";
+        private static string _areaFormula = "a×a";
+        private static string _perimeterFormula = "4×a";
         public Square(double side) : base(side, side)
         {
             _a = side;
@@ -20,16 +20,16 @@ namespace Codecool.Geometry.Shapes
         /// <summary>
         ///     Gets formula for the area of the rectangle as a string.
         /// </summary>
-        public new static string AreaFormula => _areaFormula;
+        public override string AreaFormula => _areaFormula;
 
         /// <summary>
         ///     Gets formula for the perimeter of the rectangle as a string.
         /// </summary>
-        public new static string PerimeterFormula => _perimeterFormula;
+        public override string PerimeterFormula => _perimeterFormula;
 
         public override string ToString()
         {
-            return $"Square: The sides are {_a} cm, the area is {_area} cm2, the perimeter is {_perimeter} cm";
+            return $"Square, a = {Math.Round(_a, 2)}";
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Codecool.Geometry
         /// <param name="args">Command line arguments.</param>
         public static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             bool isRunning = true;
             var shapeCollection = new ShapeCollection();
 
@@ -35,10 +36,7 @@ namespace Codecool.Geometry
                         shapeCollection.AddShape();
                         break;
                     case 2:
-                        foreach (var item in shapeCollection.shapes)
-                        {
-                            Console.WriteLine(item);
-                        }
+                        shapeCollection.GetShapesTable();
                         break;
                     case 3:
                         // TODO Show shape with the largest perimeter

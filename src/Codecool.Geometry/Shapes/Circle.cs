@@ -8,8 +8,8 @@ namespace Codecool.Geometry.Shapes
     public class Circle : Shape
     {
         private double _radius;
-        private static string _areaFormula = "Math.PI * Math.Pow(r, 2)";
-        private static string _perimeterFormula = "2 * Math.PI * r";
+        private static string _areaFormula = "π×r×r";
+        private static string _perimeterFormula = "2×π×r";
         private double _area;
         private double _perimeter;
 
@@ -23,12 +23,12 @@ namespace Codecool.Geometry.Shapes
         /// <summary>
         ///     Gets formula for the area of the circle as a string.
         /// </summary>
-        public new static string AreaFormula => _areaFormula;
+        public override string AreaFormula => _areaFormula;
 
         /// <summary>
         ///     Gets formula for the perimeter of the circle as a string.
         /// </summary>
-        public new static string PerimeterFormula => _perimeterFormula;
+        public override string PerimeterFormula => _perimeterFormula;
 
         /// <inheritdoc />
         public override double Area => _area;
@@ -38,7 +38,7 @@ namespace Codecool.Geometry.Shapes
 
         public override string ToString()
         {
-            return $"Circle: The radius is {_radius} cm, the area is {_area} cm2, the perimeter is {_perimeter} cm";
+            return $"Circle, r = {Math.Round(_radius, 2)}";
         }
     }
 }

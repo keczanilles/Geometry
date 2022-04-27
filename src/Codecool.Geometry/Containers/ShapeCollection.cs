@@ -1,5 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Collections.Generic;
+using System.Reflection;
 using Codecool.Geometry.Shapes;
 
 namespace Codecool.Geometry.Containers
@@ -33,13 +35,13 @@ namespace Codecool.Geometry.Containers
                 case 1:
                     Console.WriteLine("Please give a radius number:");
                     string radius = Console.ReadLine();
-                    var circle = new Circle(int.Parse(radius));
+                    var circle = new Circle(double.Parse(radius));
                     shapes.Add(circle);
                     break;
                 case 2:
                     Console.WriteLine("Please give a side length:");
                     string eqSideLength = Console.ReadLine();
-                    var equilateralTriangle = new EquilateralTriangle(int.Parse(eqSideLength));
+                    var equilateralTriangle = new EquilateralTriangle(double.Parse(eqSideLength));
                     shapes.Add(equilateralTriangle);
                     break;
                 case 3:
@@ -47,19 +49,19 @@ namespace Codecool.Geometry.Containers
                     string aSide = Console.ReadLine();
                     Console.WriteLine("Please give the length of side 'b': ");
                     string bSide = Console.ReadLine();
-                    var rectangle = new Rectangle(int.Parse(aSide), int.Parse(bSide));
+                    var rectangle = new Rectangle(double.Parse(aSide), double.Parse(bSide));
                     shapes.Add(rectangle);
                     break;
                 case 4:
                     Console.WriteLine("Please give a side length:");
                     string rpSideLength = Console.ReadLine();
-                    var regularPentagon = new RegularPentagon(int.Parse(rpSideLength));
+                    var regularPentagon = new RegularPentagon(double.Parse(rpSideLength));
                     shapes.Add(regularPentagon);
                     break;
                 case 5:
                     Console.WriteLine("Please give a side length:");
                     string squSideLength = Console.ReadLine();
-                    var square = new Square(int.Parse(squSideLength));
+                    var square = new Square(double.Parse(squSideLength));
                     shapes.Add(square);
                     break;
                 case 6:
@@ -69,10 +71,31 @@ namespace Codecool.Geometry.Containers
                     string triangleB = Console.ReadLine();
                     Console.WriteLine("Please give the length of side 'c': ");
                     string triangleC = Console.ReadLine();
-                    var triangle = new Triangle(int.Parse(triangleA), int.Parse(triangleB), int.Parse(triangleC));
+                    var triangle = new Triangle(double.Parse(triangleA), double.Parse(triangleB), double.Parse(triangleC));
                     shapes.Add(triangle);
                     break;
             }
+        }
+
+        public void GetShapesTable()
+        {
+            Console.WriteLine("/------------------------------------------------------------------------------------------------------------------------------------\\");
+            Console.WriteLine("| ID|                Class|                                toString|  Perimeter|   Formula|       Area|                       Formula|");
+            Console.WriteLine("|---|---------------------|----------------------------------------|-----------|----------|-----------|------------------------------|");
+
+
+            for (int i = 0; i < shapes.Count; i++)
+            {
+                Console.WriteLine($"{i}, {shapes[i].GetType().Name}, {shapes[i]}, {Math.Round(shapes[i].Perimeter, 2)}, {shapes[i].PerimeterFormula}, {Math.Round(shapes[i].Area, 2)}, {shapes[i].AreaFormula}");
+
+
+                if (i != shapes.Count - 1)
+                {
+                    Console.WriteLine("|---|---------------------|----------------------------------------|-----------|----------|-----------|------------------------------|");
+                }
+            }
+
+            Console.WriteLine("\\------------------------------------------------------------------------------------------------------------------------------------/");
         }
 
     }

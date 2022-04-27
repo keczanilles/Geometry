@@ -9,8 +9,8 @@ namespace Codecool.Geometry.Shapes
     {
         private double _a;
         private double _b;
-        private static string _areaFormula = "a * b";
-        private static string _perimeterFormula = "2 * (a + b)";
+        private static string _areaFormula = "a×b";
+        private static string _perimeterFormula = "2×a+2×b";
         public double _area;
         public double _perimeter;
 
@@ -25,12 +25,12 @@ namespace Codecool.Geometry.Shapes
         /// <summary>
         ///     Gets formula for the area of the rectangle as a string.
         /// </summary>
-        public new static string AreaFormula => _areaFormula;
+        public override string AreaFormula => _areaFormula;
 
         /// <summary>
         ///     Gets formula for the perimeter of the rectangle as a string.
         /// </summary>
-        public new static string PerimeterFormula => _perimeterFormula;
+        public override string PerimeterFormula => _perimeterFormula;
 
         /// <inheritdoc />
         public override double Area => _area;
@@ -40,7 +40,7 @@ namespace Codecool.Geometry.Shapes
 
         public override string ToString()
         {
-            return $"Rectangle: The 'a' side is {_a} cm, the 'b' side is {_b} cm, the area is {_area} cm2, the perimeter is {_perimeter} cm";
+            return $"Rectangle, a = {Math.Round(_a, 2)}, b = {Math.Round(_b, 2)}";
         }
     }
 }
