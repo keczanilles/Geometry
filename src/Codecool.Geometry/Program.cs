@@ -1,4 +1,7 @@
-﻿namespace Codecool.Geometry
+﻿using System;
+using Codecool.Geometry.Containers;
+
+namespace Codecool.Geometry
 {
     /// <summary>
     ///     This is the main class of your program which contains Main method
@@ -11,33 +14,44 @@
         /// <param name="args">Command line arguments.</param>
         public static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             bool isRunning = true;
+            var shapeCollection = new ShapeCollection();
 
             while (isRunning)
             {
-                int option = 0;  // TODO read the keyboard here
+                Console.WriteLine("Please choose your option:");
+                Console.WriteLine("1. Add new shape");
+                Console.WriteLine("2. Print all shapes");
+                Console.WriteLine("3. Largest perimeter");
+                Console.WriteLine("4. Largest area");
+                Console.WriteLine("5. Show formulas");
+                Console.WriteLine("0. Exit");
+
+                int option = int.Parse(Console.ReadLine());
 
                 switch (option)
                 {
                     case 1:
-                        // TODO Add new shape
+                        shapeCollection.AddShape();
                         break;
                     case 2:
-                        // TODO Show all shapes
+                        shapeCollection.GetShapesTable();
                         break;
                     case 3:
-                        // TODO Show shape with the largest perimeter
+                        shapeCollection.GetLargestShapeByPerimeter();
                         break;
                     case 4:
-                        // TODO Show shape with the largest area
+                        shapeCollection.GetLargestShapeByArea();
                         break;
                     case 5:
-                        // TODO Show formulas
+                        shapeCollection.GetFormulas();
                         break;
                     case 0:
-                        // TODO Exit
+                        isRunning = false;
                         break;
                 }
+                
             }
         }
     }
